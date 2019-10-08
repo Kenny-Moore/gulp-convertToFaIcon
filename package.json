@@ -1,0 +1,22 @@
+{
+  "name": "gulp-converttofaicon",
+  "version": "0.0.1",
+  "description": "This is a tool for converting svg files into font awesome 5 icon definitions",
+  "main": "index.js",
+  "dependencies": {
+    "jsdom": "^15.1.1",
+    "path": "^0.12.7",
+    "svgpath": "^2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fontawesome",
+    "custom",
+    "converter"
+  ],
+  "author": "Kenneth Moore III",
+  "license": "MIT"
+}
