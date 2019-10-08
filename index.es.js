@@ -3,13 +3,13 @@ const { JSDOM } = jsdom;
 const path = require('path');
 const svgpath = require('svgpath');
 
-//const svgpath = svgpathimport.svgpath;
-const defaultFaHeight = 512;
-const defaultFaFixedWidthRatio = 1.25;
-
 // through2 is a thin wrapper around node transform streams
 var through = require('through2');
 var PluginError = require('plugin-error');
+
+//const svgpath = svgpathimport.svgpath;
+const defaultFaHeight = 512;
+const defaultFaFixedWidthRatio = 1.25;
 
 // Consts
 const PLUGIN_NAME = 'gulp-convertToFaIcon';
@@ -389,19 +389,6 @@ function convertToMergedIcon(children, base, params, iconSpec) {
   return icon;
 }
 
-function convertToFaIcon(element, base, params) {
-  let faIcon = base.slice(0);
-  if (element.tag === 'icon') {
-    let { icon: icon } = element.icon;
-    faIcon = icon;
-  } else {
-    faIcon[4] = convertToPath(element);
-    faIcon = normalizeIcon(faIcon, params);
-  }
-  return faIcon;
-
-}
-
 function convertToPath(element) {
   let vectorData = "";
   if (element && 'attributes' in element) {
@@ -504,17 +491,6 @@ function convertCE(cx = 0, cy = 0) {
     default:
       return '';
   }
-}
-
-function compileContentInstruction(compiler, resources, node, instruction) {
-  let fragment = document.createDocumentFragment();
-  //TODO: consider adding a div to wrap the user content so it's easier to hide/show
-
-  while (node.firstChild) {
-    fragment.appendChild(node.firstChild); //copy the content of your element into a fragment
-  }
-
-  instruction.contentFactory = compiler.compile(fragment, resources); //compile the fragment
 }
 
 

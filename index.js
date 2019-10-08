@@ -8,11 +8,11 @@ var JSDOM = jsdom.JSDOM;
 var path = require('path');
 var svgpath = require('svgpath');
 
-var defaultFaHeight = 512;
-var defaultFaFixedWidthRatio = 1.25;
-
 var through = require('through2');
 var PluginError = require('plugin-error');
+
+var defaultFaHeight = 512;
+var defaultFaFixedWidthRatio = 1.25;
 
 var PLUGIN_NAME = 'gulp-convertToFaIcon';
 
@@ -381,19 +381,6 @@ function convertToMergedIcon(children, base, params, iconSpec) {
   return icon;
 }
 
-function convertToFaIcon(element, base, params) {
-  var faIcon = base.slice(0);
-  if (element.tag === 'icon') {
-    var icon = element.icon.icon;
-
-    faIcon = icon;
-  } else {
-    faIcon[4] = convertToPath(element);
-    faIcon = normalizeIcon(faIcon, params);
-  }
-  return faIcon;
-}
-
 function convertToPath(element) {
   var vectorData = "";
   if (element && 'attributes' in element) {
@@ -507,17 +494,6 @@ function convertCE() {
     default:
       return '';
   }
-}
-
-function compileContentInstruction(compiler, resources, node, instruction) {
-  var fragment = document.createDocumentFragment();
-
-
-  while (node.firstChild) {
-    fragment.appendChild(node.firstChild);
-  }
-
-  instruction.contentFactory = compiler.compile(fragment, resources);
 }
 
 module.exports = gulpConvertToFaIcon;
