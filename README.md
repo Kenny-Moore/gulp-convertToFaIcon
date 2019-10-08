@@ -15,9 +15,11 @@
 </table>
 
 ## Usage
-THIS IS A WORKING POC, USE AT YOUR OWN RISK
+> THIS IS A WORKING POC, USE AT YOUR OWN RISK
+
 `gulpConvertToFaIcon(<string>[prefix][, <string>[roll up lib to path]])`
-Create an icon def file for each svg
+
+You can create an icon def file for each svg:
 ```js
 const gulp = require('gulp');
 const gulpConvertToFaIcon = require('gulp-convertToFaIcon');
@@ -29,7 +31,7 @@ gulp.task('default', () =>
 );
 ```
 
-or roll up svg files into a single library def
+or roll up svg files into a single library def:
 ```js
 const gulp = require('gulp');
 const gulpConvertToFaIcon = require('gulp-convertToFaIcon');
